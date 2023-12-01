@@ -1,0 +1,217 @@
+@import url(./css-reset.css);
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+
+:root {
+  /* Typography */
+  --ff: 'Josefin Sans', sans-serif;
+  --fw-300: 300;
+  --fw-400: 400;
+  --fw-600: 600;
+  --fs-400:  clamp(0.875rem, 1.1111vw, 1rem);
+  --fs-700: clamp(2.5rem, 1.1111vw, 4.4375rem);
+
+  /* Colors and gradients */
+  --desaturated-red: hsl(0, 36%, 70%);
+  --soft-red: hsl(0, 93%, 68%);
+  --dark-greyish-red: hsl(0, 6%, 24%);
+  --linear-neutral-grad: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+  --linear-color-grad: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+
+  /* Paddings and margins */
+  --padding-main: 2rem;
+  --padding-secondary: 1rem;
+}
+
+body {
+  font-family: var(--ff);
+  font-size: var(--fs-400);
+  text-align: center;
+  color: var(--desaturated-red);
+}
+
+.wrapper {
+  min-width: 375px;
+  max-width: 1440px;
+  background: linear-gradient(150deg, #FFF 0%, #FFF4F4 84.51%);
+}
+
+.hero-image-container img {
+  width: 100%;
+}
+
+a {
+  color: var(--desaturated-red)
+}
+
+/* Mobile styling */
+header > *:not(.hero-image-container),
+main > * {
+  padding-left: var(--padding-main);
+  padding-right: var(--padding-main);
+
+}
+
+.image-logo-container {
+  padding-top: var(--padding-main);
+  padding-bottom: var(--padding-main);
+}
+
+h2 {
+  font-size: var(--fs-700);
+  font-weight: var(--fw-600);
+  line-height: 2.625rem;
+  letter-spacing: 0.67656rem;
+  text-transform: uppercase;
+  color: var(--dark-greyish-red);
+}
+
+h2:first-child {
+  font-weight: var(--fw-300);
+  padding-top: 4rem;
+  color: var(--desaturated-red);
+}
+
+.text-shoppers {
+  padding-top: var(--padding-secondary);
+}
+
+form {
+  margin: var(--padding-main) var(--padding-main) 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  border: 1px solid var(--desaturated-red);
+}
+
+form,
+form > * {
+  border-radius: 1.75rem;
+  background-color: #FFF4F4;
+}
+
+input,
+button {
+  border: none;
+}
+
+input {
+  all: unset;
+  width: calc(79% - 1.5rem);
+  padding-left: 1.5rem;
+  text-align: left;
+  color: var(--dark-greyish-red);
+}
+
+input::placeholder {
+  font-size: var(--fs-400);
+  color: var(--desaturated-red);
+}
+
+input:active {
+  border: none;
+}
+
+form img {
+  margin-right: 0.5rem;
+  width: 1.5rem;
+}
+
+
+button {
+  width: clamp(4rem, 6.9444vw, 6.25rem );
+  background: var(--linear-color-grad);
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+}
+
+button:hover {
+  cursor: pointer;
+
+}
+
+button:active {
+  cursor: pointer;
+  background: var(--soft-red);
+}
+
+button img {
+  margin: 0 auto;
+}
+
+.error-message {
+  padding: 0.5rem 0 4rem 1.5rem;
+  margin: 0 2rem;
+  text-align: left;
+  color: hsl(0, 100%, 50%);
+  visibility: hidden;
+}
+
+.attribution {
+  margin-bottom: 0.75rem;
+  font-size: 0.7rem;
+}
+
+/* Desktop styling */
+@media screen and (min-width:656px) {
+  .wrapper {
+    display: grid;
+    grid-template-rows: 3;
+    grid-template-columns: 60% 40%;
+    margin: auto auto;
+    background-image: url(./images/bg-pattern-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .image-logo-container {
+    grid-row: 1 / span 1;
+    grid-column: 1/ span 1;
+    padding: 0;
+    margin: 4.7rem 0 0 10.3rem;
+  }
+
+  .hero-image-container {
+    grid-row: 1 / span 2;
+    grid-column: 2 / span 1;
+  }
+
+  picture, picture img {
+    height: 100%;
+  }
+
+  picture img {
+    object-fit: cover;
+  }
+
+  main {
+    grid-row: 2 / span 1;
+    grid-column: 1 / span 1;
+  }
+
+  .error-message {
+    padding-bottom: 0;
+  }
+
+  footer {
+    grid-row: 3 / span 1;
+    grid-column: 1 / span 2;
+    margin-top: 0.75rem;
+  }
+
+  main {
+    max-width: 27.75rem;
+    margin: 0 auto;
+  }
+
+  button {
+    height: 3.5rem;
+    width: 6.25rem;
+  }
+
+  button img {
+    height: 1rem;
+    width: auto;
+  }
+}
